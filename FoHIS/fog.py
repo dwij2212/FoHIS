@@ -12,10 +12,11 @@ np.set_printoptions(threshold=np.inf)
 np.errstate(invalid='ignore', divide='ignore')
 
 # load rgb and depth image
-img = '../img/img.jpg'
+img = '../img/img.png'
 Ip = cv2.imread(img)
 # name = str(img.split('.')[0].split('/')[1])
-depth = cv2.imread('../img/imgd.jpg')[:, :, 0].astype(np.float64)
+# depth = cv2.imread('../img/imgd.jpg')[:, :, 0].astype(np.float64)
+depth = np.load('../img/depth.npy')
 depth[depth==0] = 1  # the depth_min shouldn't be 0
 depth *= 3
 
